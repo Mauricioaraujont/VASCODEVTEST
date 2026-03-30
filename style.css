@@ -4,16 +4,19 @@
   box-sizing: border-box;
 }
 
+/* BODY */
 body {
-  margin: 0;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+
+  font-family: Arial, Helvetica, sans-serif;
 
   background: url("fundo.jpg") no-repeat center center;
   background-size: cover;
 }
 
+/* OVERLAY ESCURO */
 .overlay {
   position: fixed;
   inset: 0;
@@ -21,44 +24,62 @@ body {
   z-index: 0;
 }
 
-.topo {
-  position: relative;
-  z-index: 1;
-  display: flex;
-  justify-content: center;
-  padding: 30px 20px 20px;
-}
-
-.logo {
-  max-width: 180px;
+/* BARRA SUPERIOR */
+.barra {
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
-  height: auto;
+  z-index: 1000;
+
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(8px);
+
+  text-align: center;
+  padding: 14px 10px;
 }
 
+/* TÍTULO */
+.titulo {
+  color: white;
+  font-size: 22px;
+}
+
+/* CONTAINER */
 .container {
   flex: 1;
+  position: relative;
+  z-index: 1;
+
+  max-width: 900px;
+  margin: 0 auto;
+
+  padding: 90px 20px 20px;
 }
 
+/* GALERIA */
 .galeria {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 8px;
 }
 
+/* ITEM */
 .item {
   width: 100%;
   aspect-ratio: 1 / 1;
   overflow: hidden;
   background: #111;
+  border-radius: 6px;
 }
 
+/* IMAGEM */
 .item img {
   width: 100%;
   height: 100%;
-  display: block;
   object-fit: cover;
   cursor: pointer;
-  transition: transform 0.3s ease, opacity 0.3s ease;
+  transition: 0.3s;
 }
 
 .item img:hover {
@@ -70,12 +91,13 @@ body {
 .modal {
   display: none;
   position: fixed;
-  z-index: 9999;
   inset: 0;
-  background: rgba(0, 0, 0, 0.92);
+  z-index: 9999;
+
+  background: rgba(0, 0, 0, 0.95);
+
   justify-content: center;
   align-items: center;
-  padding: 20px;
 }
 
 .modal.ativo {
@@ -83,136 +105,61 @@ body {
 }
 
 .imagem-modal {
-  max-width: 90vw;
-  max-height: 90vh;
-  object-fit: contain;
+  max-width: 90%;
+  max-height: 85%;
   border-radius: 6px;
 }
 
 .fechar {
   position: absolute;
-  top: 20px;
-  right: 30px;
-  font-size: 40px;
+  top: 15px;
+  right: 20px;
+  font-size: 35px;
   color: white;
   cursor: pointer;
-  user-select: none;
 }
 
-@media (max-width: 700px) {
-  .container {
-    padding: 12px;
-  }
-
-  .galeria {
-    gap: 6px;
-  }
-
-  .logo {
-    max-width: 200px;
-    height: auto;
-    max-width: none;
-  }
-
-  .fechar {
-    top: 12px;
-    right: 18px;
-    font-size: 32px;
-  }
-}
-@font-face {
-    font-family: 'Minha fonte';
-    src: url('Minha fonte.ttf') format('truetype');
-}
-
-.barra {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-
-    background: rgba(0, 0, 0, 0.7);
-    backdrop-filter: blur(10px);
-
-    padding: 15px;
-    text-align: left;
-    z-index: 1000;
-}
+/* RODAPÉ */
 .rodape {
-    position: relative;
-    z-index: 1;
+  margin-top: auto;
+  text-align: center;
 
-    text-align: center;
-    padding: 15px 10px;
+  padding: 15px;
+  font-size: 14px;
+  color: #ccc;
 
-    color: #ccc;
-    font-size: 14px;
-
-    background: rgba(0, 0, 0, 0.6);
-    backdrop-filter: blur(5px);
-    margin-top: 20px;
-}
-.titulo { 
-    margin: 0;
-    color: white;
-    font-size: 36px;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(5px);
 }
 
-
-/* TABLET */
-@media (max-width: 768px) {
-  .container {
-    padding: 80px 12px 12px;
-  }
-
-  .galeria {
-    gap: 6px;
-  }
-
-  .titulo {
-    font-size: 20px;
-  }
-}
-
-/* CELULAR */
+/* MOBILE */
 @media (max-width: 480px) {
-     .rodape {
-    font-size: 12px;
-    padding: 12px;
-  }
-}
-  body {
-    background-attachment: scroll;
-  }
-
-  .barra {
-    padding: 12px 8px;
-  }
 
   .titulo {
     font-size: 18px;
   }
 
   .container {
-    padding: 72px 8px 8px;
+    padding: 75px 10px 10px;
   }
 
   .galeria {
-    grid-template-columns: repeat(3, 1fr);
     gap: 4px;
   }
 
   .item {
-    border-radius: 2px;
+    border-radius: 3px;
   }
 
   .fechar {
-    font-size: 30px;
+    font-size: 28px;
     top: 10px;
-    right: 14px;
+    right: 15px;
   }
 
   .imagem-modal {
-    max-width: 95vw;
-    max-height: 80vh;
+    max-width: 95%;
+    max-height: 80%;
   }
+
+}
